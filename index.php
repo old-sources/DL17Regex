@@ -1,4 +1,6 @@
 <?php
+// git@github.com:imie-source/DL17Regex.git
+// https://github.com/imie-source/DL17Regex.git
 
 $examples = [
     [
@@ -7,9 +9,6 @@ $examples = [
         "bads" => ['Salut les CDI!', 'LD'],
         "statement" => 'Exemple'
     ]
-];
-$exercises = [
-   
 ];
 
 function printExercises($exercises){

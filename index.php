@@ -112,7 +112,19 @@ $exercises = [
         "regex" => "/^.{1,9}$/",
         "goods" => ['.odt', '@', '123456789', 'héhéhé'],
         "bads" => ['skfhskdjfhkjsdhfjkh', ''],
-        "statement" => "Vérifier qu'une extension est une extension LibreOffice (.odt, .odp, .ods).",
+        "statement" => "Une chaîne non vide de moins de 10 caractères.",
+    ],
+    [
+        "regex" => "/^\d{4,8}$/",
+        "goods" => ['0000', '1234', '12345678'],
+        "bads" => ['abcdef', '000', '123456789'],
+        "statement" => "Un code PIN de téléphone portable (entre 4 et 8 chiffres).",
+    ],
+    [
+        "regex" => "/^J(im|oe)$/",
+        "goods" => ['Jim', 'Joe'],
+        "bads" => ['Jimmy', 'Joey', 'JOE'],
+        "statement" => "Jim ou Joe.",
     ]
 ];
 

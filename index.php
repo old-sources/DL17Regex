@@ -151,10 +151,29 @@ $exercises = [
         "statement" => "Une heure au format anglais (12:30am).",
     ],
     [
-        "regex" => "/^$/",
-        "goods" => [],
-        "bads" => [],
+        "regex" => "/^[12]\d\d(0[1-9]|1[0-2])([1-9]\d|0[1-9])\d{6}([1-8]\d|0[1-9]|9[0-7])$/",
+        "goods" => ['200010100000097'],
+        "bads" => ['300010100000001', '100000100000001', '100130100000001', '100010000000001', '100010100000000', '100010100000098', '100010100000099'],
         "statement" => "Un numéro de sécurité sociale.",
+    ],
+    [
+        //"regex" => "/^[A-HJ-NP-TV-Z]{2}-(\d\d[1-9]|\d[1-9]0|[1-9]00)-[A-HJ-NP-TV-Z]{2}$/",        
+        "regex" => "/^[A-HJ-NP-TV-Z]{2}-([1-9]\d\d|0[1-9]\d|00[1-9])-[A-HJ-NP-TV-Z]{2}$/",
+        "goods" => ['AA-001-AA'],
+        "bads" => ['AI-001-AI', 'AU-001-AA', 'AA-000-AA', 'aa-000-aa'],
+        "statement" => "Une plaque d'imatriculation.",
+    ],
+    [
+        "regex" => "/^[1-9]\d*$/",
+        "goods" => ['1', '10', '314'],
+        "bads" => ['0', '01', '001'],
+        "statement" => "Un entier naturel supérieur à 0.",
+    ],
+    [
+        "regex" => "/^([1-9]\d*|0)$/",
+        "goods" => ['1', '10', '314', '0'],
+        "bads" => ['01', '001', '00'],
+        "statement" => "Un entier naturel supérieur ou égal à 0.",
     ]
 ];
 

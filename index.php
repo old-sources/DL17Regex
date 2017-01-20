@@ -174,6 +174,12 @@ $exercises = [
         "goods" => ['1', '10', '314', '0'],
         "bads" => ['01', '001', '00'],
         "statement" => "Un entier naturel supérieur ou égal à 0.",
+    ],
+    [
+        "regex" => "/^([+-]?(([1-9]\d*|0)[,.]\d?\d?[1-9]|[1-9]\d*)|0)$/",
+        "goods" => ['10', '-0.3', '+110'],
+        "bads" => ['010', '123.20'],
+        "statement" => "Un nombre potentiellement signé et pouvant avoir 1 à 3 chiffres après la virgule à condition que le dernier chiffre ne soit pas un zéro.",
     ]
 ];
 

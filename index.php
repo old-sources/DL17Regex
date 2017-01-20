@@ -125,6 +125,36 @@ $exercises = [
         "goods" => ['Jim', 'Joe'],
         "bads" => ['Jimmy', 'Joey', 'JOE'],
         "statement" => "Jim ou Joe.",
+    ],
+    [
+        "regex" => "/^[A-ZÉ][a-zàëïüöéèç]+(-[A-Z][a-zàëïüöéèç]+)*$/u",
+        "goods" => ['Élise','Jean', 'Jean-François', 'Gülistan', 'Xi', 'Tétiana', 'Laëticia', 'Jean-François-Richard'],
+        "bads" => ['Jean-', 'jean', 'JEAN', 'X', 'JeaN', 'Jean François'],
+        "statement" => "Un prénom.",
+    ],
+    [
+        "regex" => "/^[aeiouyAEIOUY]([a-z]*[aeiouy])?$/",
+        "goods" => ['Y', 'y', 'arbre', 'ertyi'],
+        "bads" => ['toto', 'test'],
+        "statement" => "Un mot qui commence et fini par une voyelle.",
+    ],
+    [
+        "regex" => "/^([01][0-9]|2[0-3]):[0-5][0-9]$/",
+        "goods" => ['00:00', '15:15', '13:37', '01:12'],
+        "bads" => ['24:00', '21:60', '02:00am', '12:', '1:12'],
+        "statement" => "Une heure au format 24h (Ex: 19:30).",
+    ],
+    [
+        "regex" => "/^(0[1-9]|1[0-2]):[0-5][0-9][ap]m$/",
+        "goods" => ['01:00am', '12:30pm', '02:00am'],
+        "bads" => ['24:00', '15:15pm', '13:37', '21:60', '12:', '1:12'],
+        "statement" => "Une heure au format anglais (12:30am).",
+    ],
+    [
+        "regex" => "/^$/",
+        "goods" => [],
+        "bads" => [],
+        "statement" => "Un numéro de sécurité sociale.",
     ]
 ];
 

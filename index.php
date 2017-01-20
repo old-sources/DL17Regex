@@ -8,6 +8,111 @@ $examples = [
         "goods" => ['Salut les DLs!', 'DLOUDLOU', 'LDLDLDLDL'],
         "bads" => ['Salut les CDI!', 'LD'],
         "statement" => 'Exemple'
+    ],
+    [
+        "regex" => "/^DL/",
+        "goods" => ['DL, c\'est la vie.', 'DLOUDLOU'],
+        "bads" => ['Salut les DL', "LDLDLDLDL"],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/DL$/",
+        "goods" => ['Salut les DL', 'DL', "LDLDLDLDL", ],
+        "bads" => ['DL, c\'est la vie.', 'DLOUDLOU'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/^DL$/",
+        "goods" => ['DL'],
+        "bads" => ['DL, c\'est la vie.', 'DLOUDLOU', 'DLDLDL'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/t.t./",
+        "goods" => ['tata', 'titi', 'tttt', 'taratata', 't8t9', 't@t#', 't t t t t'],
+        "bads" => ['toutou', 'tartine', 'tot', 'to'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/^t[aeiou]t[aeiou]$/",
+        "goods" => ['tata', 'tati', 'toto', 'totu', 'tito'],
+        "bads" => ['toutou', 'tyty', 'tut', 'tsts', 'tttt', 'totototo'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/^t[a-tA-C1-5]t[A-Z]$/",
+        "goods" => ['tAtA', 't1tZ', 'tatZ'],
+        "bads" => ['tata', 'tutA', 'tEtA', 'tat1'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/^[abc].[def]$/",
+        "goods" => ['bad', 'bof', 'bid', 'cif'],
+        "bads" => ['daf'],
+        "statement" => "Exemple"
+    ],
+    [
+        "regex" => "/^(oui|non)$/",
+        "goods" => ['oui', 'non'],
+        "bads" => ['ouais', 'bod', 'nop', 'nan'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^ch(ien|at)$/",
+        "goods" => ['chien', 'chat'],
+        "bads" => ['cheval', 'chameau'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^(t[aeiou]){2}$/",
+        "goods" => ['tata', 'tito', 'tati'],
+        "bads" => ['toutou'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^.{4,6}$/",
+        "goods" => ['tata', 'tito', 'tati', '      '],
+        "bads" => ['top', '1234567'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^0{1,9}[A-Z]{3}$/",
+        "goods" => ['000AZE', '0TRE'],
+        "bads" => ['TRE', '000aze'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^1[2-8]?9$/",
+        "goods" => ['19', '129', '139', '149'],
+        "bads" => ['119'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^bo*m$/",
+        "goods" => ['boooooooooooooooooom', 'booom', 'booooooom'],
+        "bads" => ['bim'],
+        "statement" => "Exemple",
+    ],
+    [
+        "regex" => "/^ta+$/",
+        "goods" => ['taaaaaaaaaaaa', 'ta', 'taaaaa'],
+        "bads" => ['bim'],
+        "statement" => "Exemple",
+    ]
+];
+
+$exercises = [
+    [
+        "regex" => "/^\.od[tps]$/",
+        "goods" => ['.odt', '.ods', '.odp'],
+        "bads" => ['odt', '.odf', 'test.odt', ',odt', '.exe', 'oodt'],
+        "statement" => "Vérifier qu'une extension est une extension LibreOffice (.odt, .odp, .ods).",
+    ],
+    [
+        "regex" => "/^.{1,9}$/",
+        "goods" => ['.odt', '@', '123456789', 'héhéhé'],
+        "bads" => ['skfhskdjfhkjsdhfjkh', ''],
+        "statement" => "Vérifier qu'une extension est une extension LibreOffice (.odt, .odp, .ods).",
     ]
 ];
 
@@ -84,6 +189,8 @@ function printResult($regex, $subjects, $flag = 1){
     <main class="container">
         <h2>Exemples :</h2>
         <?php printExercises($examples) ?>
+        <h2>Exercices :</h2>
+        <?php printExercises($exercises) ?>
     </main>
 </h1>
 </body>
